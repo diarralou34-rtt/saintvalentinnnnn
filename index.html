@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Pour toi, Isaline 💘</title>
+<style>
+body {
+background-color: #ffe6e6;
+font-family: 'Poppins', sans-serif;
+text-align: center;
+overflow: hidden;
+height: 100vh;
+margin: 0;
+padding-top: 100px;
+}
+
+.container {
+background-color: #fff0f5;
+padding: 50px;
+border-radius: 20px;
+box-shadow: 0px 0px 20px pink;
+display: inline-block;
+position: relative;
+z-index: 10;
+animation: popUp 1s ease-out;
+}
+
+h1 {
+color: #ff4d6d;
+animation: fadeIn 2s ease-in;
+}
+
+.buttons button {
+background-color: #ff4d6d;
+color: white;
+padding: 15px 30px;
+font-size: 18px;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+margin: 10px;
+transition: transform 0.2s, background-color 0.2s;
+}
+
+.buttons button:hover {
+background-color: #ff1a4d;
+transform: scale(1.1);
+}
+
+.result {
+margin-top: 30px;
+font-size: 26px;
+font-weight: bold;
+}
+
+@keyframes fadeIn {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+@keyframes popUp {
+from {transform: scale(0.5); opacity: 0;}
+to {transform: scale(1); opacity: 1;}
+}
+
+/* Cœurs qui tombent */
+.heart {
+width: 30px;
+height: 30px;
+position: absolute;
+background-color: #ff4d6d;
+transform: rotate(-45deg);
+animation: fall linear infinite;
+}
+
+.heart::before,
+.heart::after {
+content: "";
+width: 30px;
+height: 30px;
+background-color: #ff4d6d;
+border-radius: 50%;
+position: absolute;
+}
+
+.heart::before {
+top: -15px;
+left: 0;
+}
+
+.heart::after {
+left: 15px;
+top: 0;
+}
+
+@keyframes fall {
+0% {transform: translateY(-50px) rotate(-45deg);}
+100% {transform: translateY(110vh) rotate(-45deg);}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>💖 Isasa, veux-tu être ma Saint Valentine ? 💖</h1>
+<p>Choisis une réponse :</p>
+<div class="buttons">
+<button onclick="reponseOui()">Oui 💕</button>
+<button onclick="reponseNon()">Non 😢</button>
+</div>
+<p id="result" class="result"></p>
+</div>
+
+<script>
+// Cœurs aléatoires
+for(let i=0; i<30; i++){
+let heart = document.createElement("div");
+heart.classList.add("heart");
+heart.style.left = Math.random() * window.innerWidth + "px";
+heart.style.animationDuration = 3 + Math.random() * 5 + "s";
+heart.style.opacity = Math.random();
+document.body.appendChild(heart);
+}
+
+// Réactions boutons
+function reponseOui() {
+document.getElementById("result").innerText = "T’as gagné, Aliou 😍💞";
+document.getElementById("result").style.color = "#ff4d6d";
+}
+
+function reponseNon() {
+document.getElementById("result").innerText = "😢";
+}
+</script>
+
+<!-- Musique douce -->
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/30/audio_b817b4dbe4.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
